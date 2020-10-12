@@ -4,7 +4,7 @@ def selection_sort(data, drawData, timeTick):
     for i in range(len(data)-1):
 
         min_idx = i
-        for j in range(i, len(data)):
+        for j in range(i+1, len(data)):
             if data[min_idx] > data[j]:
                 min_idx = j
 
