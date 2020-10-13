@@ -4,6 +4,7 @@ import random
 from bubbleSort import bubble_sort
 from quickSort import quick_sort
 from mergeSort import merge_sort
+from selectionSort import selection_sort
 from insertionSort import insertion_sort
 
 root = Tk()
@@ -64,6 +65,9 @@ def startAlgorithm():
 
     elif algMenu.get() == 'Merge Sort':
         merge_sort(data, drawData, speedScale.get())
+    
+    elif algMenu.get() == 'Selection Sort':
+        selection_sort(data, drawData, speedScale.get())
 
     drawData(data, ['green' for x in range(len(data))])
 
@@ -77,7 +81,7 @@ canvas.grid(row=1, column=0, padx=10, pady=5)
 #User Interface Area
 #Row[0]
 Label(UI_frame, text="Algorithm: ", bg='grey').grid(row=0, column=0, padx=5, pady=5, sticky=W)
-algMenu = ttk.Combobox(UI_frame, textvariable=selected_alg, values=['Bubble Sort', 'Merge Sort', 'Quick Sort','Insertion Sort'])
+algMenu = ttk.Combobox(UI_frame, textvariable=selected_alg, values=['Bubble Sort', 'Merge Sort', 'Quick Sort', 'Insertion Sort', 'Selection Sort'])
 algMenu.grid(row=0, column=1, padx=5, pady=5)
 algMenu.current(0)
 
