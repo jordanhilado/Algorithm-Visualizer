@@ -28,10 +28,13 @@ def counting_sort(array, exponent, drawData, timetick):
         output[prefix_sum[int((eachNumber / exponent) % 10)]] = eachNumber
 
     # copy the output array to input array
-    for i in range(0, len(array)):
-        array[i] = output[i]
-        drawData(array, ['green' if x < i else 'red' for x in range(len(array))])
-        time.sleep(timetick)
+    for i in range(len(array)):
+        if sorted(array) == array:
+            break
+        else:
+            array[i] = output[i]
+            drawData(array, ['green' if x == i else 'red' for x in range(len(array))])
+            time.sleep(timetick)
 
     # clear the prefix_sum and counter totals
     for i in range(len(prefix_sum)):
@@ -50,7 +53,7 @@ def radix_sort(array, drawData, timeTick):
         counting_sort(array, exponent, drawData, timeTick)
         exponent *= 10
 
-    drawData(array, ['red' for x in range(len(array))])
+    drawData(array, ['blue' for x in range(len(array))])
 
 
 '''
