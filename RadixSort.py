@@ -1,13 +1,14 @@
+import time
 import random
-
+'''
 # making the test array
 input_array = []
-for i in range(1000):
+for i in range(10000):
     input_array.append(random.randint(0, 100000))
+'''
 
 # setting up some variables
 prefix_sum = [0] * 10
-output = [0] * len(input_array)
 
 
 def counting_sort(array, exponent):
@@ -34,6 +35,9 @@ def counting_sort(array, exponent):
 
 
 def radix_sort(array):
+    global output
+    output = [0] * len(array)
+
     # helps determine the amount of times to perform counting sort
     max_digits = max(array)
 
@@ -45,8 +49,8 @@ def radix_sort(array):
         counting_sort(array, exponent)
         exponent *= 10
 
-    print(input_array)
 
-
+'''
 if __name__ == '__main__':
     radix_sort(input_array)
+'''
