@@ -4,6 +4,7 @@ import random
 from bubbleSort import bubble_sort
 from quickSort import quick_sort
 from mergeSort import merge_sort
+from selectionSort import selection_sort
 from insertionSort import insertion_sort
 from selectionSort import selection_sort
 from RadixSort import radix_sort
@@ -69,6 +70,9 @@ def startAlgorithm():
 
     elif algMenu.get() == 'Merge Sort':
         merge_sort(data, drawData, speedScale.get())
+    
+    elif algMenu.get() == 'Selection Sort':
+        selection_sort(data, drawData, speedScale.get())
 
     elif algMenu.get() == 'Selection Sort':
         selection_sort(data, drawData, speedScale.get())
