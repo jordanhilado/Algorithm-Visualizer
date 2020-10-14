@@ -11,7 +11,9 @@ for i in range(10000):
 prefix_sum = [0] * 10
 
 
-def counting_sort(array, exponent):
+def counting_sort(array, exponent, drawData, timetick):
+    output = [0] * len(array)
+
     # records the occurrence for each digit into prefix_sum array
     for i in range(len(array)):
         prefix_sum[int((array[i] / exponent) % 10)] += 1
@@ -28,16 +30,15 @@ def counting_sort(array, exponent):
     # copy the output array to input array
     for i in range(0, len(array)):
         array[i] = output[i]
+        drawData(array, ['green' if x < i else 'red' for x in range(len(array))])
+        time.sleep(timetick)
 
     # clear the prefix_sum and counter totals
     for i in range(len(prefix_sum)):
         prefix_sum[i] = 0
 
 
-def radix_sort(array):
-    global output
-    output = [0] * len(array)
-
+def radix_sort(array, drawData, timeTick):
     # helps determine the amount of times to perform counting sort
     max_digits = max(array)
 
@@ -46,8 +47,10 @@ def radix_sort(array):
 
     # calls counting sort for every possible digit
     while max_digits / exponent > 0:
-        counting_sort(array, exponent)
+        counting_sort(array, exponent, drawData, timeTick)
         exponent *= 10
+
+    drawData(array, ['red' for x in range(len(array))])
 
 
 '''
