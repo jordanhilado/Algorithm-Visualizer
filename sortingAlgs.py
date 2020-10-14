@@ -74,7 +74,7 @@ def startAlgorithm():
         selection_sort(data, drawData, speedScale.get())
 
     elif algMenu.get() == 'Radix Sort':
-        radix_sort(data)
+        radix_sort(data, drawData, speedScale.get())
     drawData(data, ['green' for x in range(len(data))])
 
 
